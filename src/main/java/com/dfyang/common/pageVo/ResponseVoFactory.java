@@ -12,7 +12,7 @@ public class ResponseVoFactory {
      */
     public static ResponseVo newInstance(ResponseVoKind kind) {
         switch (kind) {
-            case BASE: return new ResponseVo();
+            case BASE: return new BaseResponseVo();
             case DESCRIBED: return new DescribedResponseVo();
             case DATA: return new DataResponseVo();
             case PAGE: return new PageResponseVo();
