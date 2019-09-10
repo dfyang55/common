@@ -11,13 +11,13 @@ public class ResponseVoFactory {
      * @return
      */
     public static ResponseVo newInstance(ResponseVoKind kind) {
-        switch (kind) {
-            case BASE: return new BaseResponseVo();
-            case DESCRIBED: return new DescribedResponseVo();
-            case DATA: return new DataResponseVo();
-            case PAGE: return new PageResponseVo();
-            default: return null;
+        ResponseVo responseVo = null;
+        try {
+            responseVo = (ResponseVo) Class.forName(kind.getPath()).newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return responseVo;
     }
 
 }
